@@ -1,0 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Squada+One&display=swap');
+h1{
+    color: #379F7A;
+    text-align: center;
+    font-family: 'Lilita One', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    }
+  .mb-3 {
+    width: 35vw;
+  }
+  .mt-custom {
+    margin-top: 10vh;
+  }
+  .form-label{
+    font-family: ABeeZee;
+  }
+  .btn{
+      background-color: #379F7A;
+      font-family: 'Lilita One', sans-serif;
+      color: #fff;
+      width: 15%;
+      font-size: 35px;
+      border-radius: 41px;
+  }
+  .btn:hover{
+    background-color: #379F7A;
+  }

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block head%}
+<head>
+  <title>Cadastrar Equipe</title>
+  <link rel="stylesheet" href="{% static 'mecanicos/cadastro/css/style.css' %}">
+</head>
+{%endblock%}
+
+{% block content %} 
+<body>
+    <form action="{%url 'mecanicos:cadastrar_equipe'%}" method="post" class="formulario">
+        {% csrf_token %}
+        <h1>Cadastro de equipe:</h1>
+        <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Nome da equipe</label>
+            <input type="text" name="nome" class="form-control" id="FormControlInput">
+          </div>
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Mecânico:</label>
+            <select class="form-select" id="inputGroupSelect01" name="mecanico">
+                <option selected>Escolher mecânico 1:</option>
+                {% for mecanico in dados_do_banco %}
+                <option value="{{ mecanico.idmecanico }}">{{ mecanico.nome }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Mecânico:</label>
+            <select class="form-select" id="inputGroupSelect01" name="mecanico">
+                <option selected>Escolher mecânico 2:</option>
+                {% for mecanico in dados_do_banco %}
+                <option value="{{ mecanico.idmecanico }}">{{ mecanico.nome }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Mecânico:</label>
+            <select class="form-select" id="inputGroupSelect01" name="mecanico">
+                <option selected>Escolher mecânico 3:</option>
+                {% for mecanico in dados_do_banco %}
+                <option value="{{ mecanico.idmecanico }}">{{ mecanico.nome }}</option>
+                {% endfor %}
+              </select>
+          </div>
+      
+          <div class="btns">
+            <button type="submit" value="cadastrar" class="btn mt-5 cadastrar">Cadastrar</button>
+            <button type="submit" value="cancelar" class="btn mt-5 ms-5 cancelar">Cancelar</button>
+          </div>
+    </form>
+</body>
+
+{% endblock content %}

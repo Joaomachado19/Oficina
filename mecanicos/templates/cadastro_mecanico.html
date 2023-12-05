@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block head%}
+<head>
+  <title>Cadastrar Mecânico</title>
+  <link rel="stylesheet" href="{% static 'mecanicos/cadastro/css/style.css' %}">
+</head>
+{%endblock%}
+
+{% block content %} 
+<body>
+    <form action="{%url 'mecanicos:cadastrar'%}" method="post" class="formulario">
+        {% csrf_token %}
+        <h1>Mecânico:</h1>
+        <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" id="FormControlInput">
+          </div>
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Especialidade</label>
+            <input type="text" name="especialidade" class="form-control" id="FormControlInput">
+          </div>
+          <div class="btns">
+            <button type="submit" value="cadastrar" class="btn mt-5 cadastrar">Cadastrar</button>
+            <button type="submit" value="cancelar" class="btn mt-5 ms-5 cancelar">Cancelar</button>
+          </div>
+    </form>
+</body>
+
+{% endblock content %}

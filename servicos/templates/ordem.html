@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block head%}
+<head>
+  <title>Criar Ordem de Serviço</title>
+  <link rel="stylesheet" href="{% static 'servicos/cadastro/css/style.css' %}">
+</head>
+{%endblock%}
+
+{% block content %} 
+<body>
+    <form action="{%url 'servicos:ordem_de_servico'%}" method="post" class="formulario">
+        {% csrf_token %}
+        <h1>Ordem de Serviço:</h1>
+        <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Titulo</label>
+            <input type="text" name="titulo" class="form-control" id="FormControlInput">
+          </div>
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Veiculo</label>
+            <select class="form-select" id="inputGroupSelect01" name="veiculo">
+                <option selected></option>
+                {% for veiculo in veiculos_do_banco %}
+                <option value="{{ veiculo.idveiculo }}">{{ veiculo.placa }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Equipe responsavel</label>
+            <select class="form-select" id="inputGroupSelect01" name="equipe">
+                <option selected></option>
+                {% for equipe in equipes_do_banco %}
+                <option value="{{ equipe.idequipe }}">{{ equipe.nome }}</option>
+                {% endfor %}
+              </select>
+          </div>
+
+
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Data inicio</label>
+            <input type="date" name="data_recebida" class="form-control" id="FormControlInput">
+          </div>
+
+          <div class="mb-3 mx-auto mt-custom">
+            <label for="FormControlInput" class="form-label">Data entrega</label>
+            <input type="date" name="data_entrega" class="form-control" id="FormControlInput">
+          </div>
+          
+
+          <div class="btns">
+            <button type="submit" value="cadastrar" class="btn mt-5 cadastrar">Cadastrar</button>
+            <button type="submit" value="cancelar" class="btn mt-5 ms-5 cancelar">Cancelar</button>
+          </div>
+    </form>
+</body>
+
+{% endblock content %}

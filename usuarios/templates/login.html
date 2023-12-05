@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block head%}
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'usuarios/login/css/style.css' %}">  
+</head>
+{%endblock%}
+
+{% block content %} 
+<body>
+    <h1 id="titulo">Login</h1>
+  <form class="formulario" action="{%url 'usuarios:login'%}" method="POST">  
+    {% csrf_token %}
+  <div class="mb-3 mx-auto mt-custom">
+      <label for="FormControlInput1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="FormControlInput1">
+    </div>
+    <div class="mb-3 mx-auto mt-5">
+      <label for="FormControlInput1" class="form-label">Senha</label>
+      <input type="password" name="senha" class="form-control" id="FormControlInput2">
+    </div>
+    <div class="text-center">
+      <button type="submit" value="Logar" class="btn mt-5">Entrar</button>
+    </div>
+  </form> 
+  </body>
+
+{% endblock content %}
