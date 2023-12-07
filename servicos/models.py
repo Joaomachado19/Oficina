@@ -13,4 +13,3 @@ class OrdemDeServico(models.Model):
         db_table = 'ordem_de_servico'
 
 
-
